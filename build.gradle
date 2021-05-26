@@ -1,0 +1,35 @@
+plugins {
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'java'
+    id "me.champeau.gradle.jmh" version "0.5.3"
+}
+
+javafx {
+    version = "11"
+    modules = [ 'javafx.controls', 'javafx.fxml']
+}
+
+apply plugin: 'application'
+mainClassName = 'dev.ferrand.chunky.bvh.BvhPlugin'
+
+group 'dev.ferrand'
+version '0.1.0'
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'se.llbit:chunky-core:2.4.0-snapshot5'
+    testCompile 'junit:junit:4.12'
+}
+
+jmh {
+    resultFormat = 'JSON'
+}
