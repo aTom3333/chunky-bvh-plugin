@@ -2,7 +2,6 @@ package dev.ferrand.chunky.bvh.implementation;
 
 import dev.ferrand.chunky.bvh.util.PackedTriangles;
 import dev.ferrand.chunky.bvh.util.PackedTrianglesBuilder;
-import it.unimi.dsi.fastutil.BigArrays;
 import it.unimi.dsi.fastutil.Stack;
 import it.unimi.dsi.fastutil.floats.FloatArrayList;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -11,21 +10,15 @@ import it.unimi.dsi.fastutil.ints.IntStack;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import org.apache.commons.math3.util.FastMath;
 import se.llbit.chunky.entity.Entity;
-import se.llbit.chunky.main.Chunky;
 import se.llbit.math.AABB;
 import se.llbit.math.Ray;
 import se.llbit.math.Vector3;
 import se.llbit.math.bvh.BVH;
-import se.llbit.math.bvh.BinaryBVH;
-import se.llbit.math.bvh.SahMaBVH;
-import se.llbit.math.primitive.MutableAABB;
 import se.llbit.math.primitive.Primitive;
 import se.llbit.math.primitive.TexturedTriangle;
 import se.llbit.util.TaskTracker;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Comparator;
 
 import static se.llbit.math.Ray.OFFSET;
 

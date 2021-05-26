@@ -2,21 +2,15 @@ package dev.ferrand.chunky.bvh.util;
 
 import it.unimi.dsi.fastutil.BigArrays;
 import it.unimi.dsi.fastutil.floats.FloatArrays;
-import it.unimi.dsi.fastutil.floats.FloatBigArrays;
 import se.llbit.chunky.block.Air;
-import se.llbit.chunky.chunk.BlockPalette;
 import se.llbit.chunky.world.Material;
 import se.llbit.math.AABB;
 import se.llbit.math.Ray;
 import se.llbit.math.Vector2;
 import se.llbit.math.Vector3;
-import se.llbit.math.primitive.MutableAABB;
 import se.llbit.math.primitive.TexturedTriangle;
 
 import java.util.BitSet;
-import java.util.Collections;
-import java.util.Comparator;
-
 public class PackedTriangles {
   private final float[][] points; // 9 floats per primitive
   private final float[][] uv; // 6 floats per primitive

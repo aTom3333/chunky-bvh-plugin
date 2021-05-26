@@ -1,0 +1,8 @@
+{
+  "name": "BVHPlugin",
+  "author": "a_Tom",
+  "main": "dev.ferrand.chunky.bvh.BvhPlugin",
+  "version": "0.1.0",
+  "targetVersion": "2.4.0",
+  "description": "Add more BVH implementations."
+}
