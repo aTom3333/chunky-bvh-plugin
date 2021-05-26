@@ -24,7 +24,7 @@ import static se.llbit.math.Ray.OFFSET;
 
 public class PackedSahMaBVH implements BVH {
 
-  public static final int SPLIT_LIMIT = 4;
+  public static final int SPLIT_LIMIT = 5;
 
   public static void addImplementation() {
     Factory.addBVHBuilder(new Factory.BVHBuilder() {
@@ -77,36 +77,6 @@ public class PackedSahMaBVH implements BVH {
   private enum Action {
     PUSH,
     MERGE,
-  }
-
-  private static class Node {
-    int left;
-    int right;
-    float xmin, xmax, ymin, ymax, zmin, zmax;
-
-    public Node(int left, int right, float xmin, float xmax, float ymin, float ymax, float zmin, float zmax) {
-      this.left = left;
-      this.right = right;
-      this.xmin = xmin;
-      this.xmax = xmax;
-      this.ymin = ymin;
-      this.ymax = ymax;
-      this.zmin = zmin;
-      this.zmax = zmax;
-    }
-  }
-
-  private int addNode(Node node) {
-    int nodeIndex = children.size() / 2;
-    children.add(node.left);
-    children.add(node.right);
-    bbox.add(node.xmin);
-    bbox.add(node.xmax);
-    bbox.add(node.ymin);
-    bbox.add(node.ymax);
-    bbox.add(node.zmin);
-    bbox.add(node.zmax);
-    return nodeIndex;
   }
 
   private int construct(TaskTracker.Task task) {
