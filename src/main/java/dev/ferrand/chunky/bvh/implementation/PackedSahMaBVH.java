@@ -145,7 +145,7 @@ public class PackedSahMaBVH implements BVH {
     int axis; // 0 - x, 1 - y, 2 - z
     if (xl >= yl && xl >= zl) {
       axis = 0;
-    } else if (yl >= xl && yl >= zl) {
+    } else if (yl >= zl) {
       axis = 1;
     } else {
       axis = 2;

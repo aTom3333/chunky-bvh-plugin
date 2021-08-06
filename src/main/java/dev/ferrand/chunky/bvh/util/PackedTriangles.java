@@ -109,7 +109,7 @@ public class PackedTriangles {
         indexes[(int) (b-from)] = aIndex;
       });
 
-    permute(indexes);
+    permute(indexes, from);
   }
   
   private class TempTriangle {
@@ -147,7 +147,7 @@ public class PackedTriangles {
 
     FloatArrays.radixSortIndirect(indexes, centers, false);
 
-    permute(indexes);
+    permute(indexes, from);
   }
 
   public void radixSortStable(int from, int to, int axis) {
@@ -156,7 +156,7 @@ public class PackedTriangles {
 
     FloatArrays.radixSortIndirect(indexes, centers, true);
 
-    permute(indexes);
+    permute(indexes, from);
   }
 
   public void sort(int from, int to, int axis) {
@@ -167,7 +167,7 @@ public class PackedTriangles {
       quickSort(from, to, axis);
   }
 
-  private void permute(int[] indexes) {
+  private void permute(int[] indexes, int from) {
     TempTriangle temp = new TempTriangle();
 
     int indexIndex = 0;
@@ -180,7 +180,7 @@ public class PackedTriangles {
 
       int index = indexes[indexIndex];
       int startIndex = index;
-      temp.readFromPacked(index);
+      temp.readFromPacked(index + from);
       int previousIndex;
       while(true) {
         previousIndex = index;
@@ -190,9 +190,9 @@ public class PackedTriangles {
         if(index == startIndex)
           break;
 
-        move(index, previousIndex);
+        move(index + from, previousIndex + from);
       }
-      temp.writeToPacked(previousIndex);
+      temp.writeToPacked(previousIndex + from);
 
       ++indexIndex;
     }
