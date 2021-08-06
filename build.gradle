@@ -13,7 +13,7 @@ apply plugin: 'application'
 mainClassName = 'dev.ferrand.chunky.bvh.BvhPlugin'
 
 group 'dev.ferrand'
-version '0.1.0'
+version '0.1.1'
 
 compileJava {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -23,10 +23,13 @@ compileJava {
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        url 'https://repo.lemaik.de/'
+    }
 }
 
 dependencies {
-    compile 'se.llbit:chunky-core:2.4.0-snapshot5'
+    compile 'se.llbit:chunky-core:2.4.0-SNAPSHOT'
     testCompile 'junit:junit:4.12'
 }
 
