@@ -368,13 +368,13 @@ public class PackedTriangles {
         ray.setCurrentMaterial(material);
         ray.t = t;
 
+        float nx = e2y * e1z - e2z * e1y;
+        float ny = e2z * e1x - e2x * e1z;
+        float nz = e2x * e1y - e2y * e1x;
+        float n_invr = (float) (1.0 / Math.sqrt(nx*nx + ny*ny + nz*nz));
+
         // n.cross(e2, e1);
-        ray.n.set(
-          e2y * e1z - e2z * e1y,
-          e2z * e1x - e2x * e1z,
-          e2x * e1y - e2y * e1x
-        );
-        ray.n.normalize();
+        ray.setNormal(nx * n_invr, ny * n_invr, nz * n_invr);
         return true;
       }
     }
