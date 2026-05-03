@@ -2,7 +2,6 @@ package dev.ferrand.chunky.bvh.util;
 
 import it.unimi.dsi.fastutil.BigArrays;
 import it.unimi.dsi.fastutil.floats.FloatArrays;
-import se.llbit.chunky.block.Air;
 import se.llbit.chunky.world.Material;
 import se.llbit.math.AABB;
 import se.llbit.math.Ray;
@@ -379,19 +378,5 @@ public class PackedTriangles {
       }
     }
     return false;
-  }
-
-
-  public static void main(String[] args) {
-    PackedTrianglesBuilder builder = new PackedTrianglesBuilder();
-    Vector3 zero = new Vector3(0, 0, 0);
-    Vector2 zero2 = new Vector2(0, 0);
-    builder.addTriangle(new TexturedTriangle(new Vector3(2, 0, 0), zero, zero, zero2, zero2, zero2, Air.INSTANCE));
-    builder.addTriangle(new TexturedTriangle(new Vector3(0, 0, 0), zero, zero, zero2, zero2, zero2, Air.INSTANCE));
-    builder.addTriangle(new TexturedTriangle(new Vector3(1, 0, 0), zero, zero, zero2, zero2, zero2, Air.INSTANCE));
-
-    PackedTriangles triangles = builder.build();
-
-    triangles.radixSort(0, 3, 0);
   }
 }
